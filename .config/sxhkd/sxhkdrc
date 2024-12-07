@@ -1,0 +1,77 @@
+########################################################
+# wm independent hotkeys
+########################################################
+
+super + Return
+    kitty
+
+super + d
+    rofi -show drun
+
+super + Escape
+    pkill -USR1 -x sxhkd
+
+########################################################
+# bspwm hotkeys
+########################################################
+
+super + alt + {q,r}
+    bspc {quit,wm -r}
+
+super + {_,shift + }w
+    bspc node -{c,k}
+
+super + m
+    bspc desktop -l next
+
+super + y
+    bspc node newest.marked.local -n newest.!automatic.local
+
+super + g
+    bspc node -s biggest
+
+########################################################
+# Window states
+########################################################
+
+super + {t,shift + t,s,f}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + ctrl + {m,x,y,z}
+    bspc node -g {marked,locked,sticky,private}
+
+########################################################
+# Focus/Swap nodes
+########################################################
+
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc node -{f,s} {west,south,north,east}
+
+super + {grave,Tab}
+    bspc {node,desktop} -f last
+
+super + {o,i}
+    bspc node {older,newer} -f
+
+########################################################
+# Custom applications
+########################################################
+
+super + shift + w
+    microsoft-edge
+
+super + ctrl + b
+    burpsuite
+
+########################################################
+# Utility apps
+########################################################
+
+super + p
+    pkill -x picom || picom -b
+
+super + ctrl + p
+    ~/.config/polybar/launch.sh
+
+super + ctrl + d
+    pkill -x dunst && dunst &
