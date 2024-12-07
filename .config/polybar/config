@@ -5,7 +5,7 @@ include-file = ~/.config/polybar/modules
 margin-bottom = 0
 margin-top = 0
 
-[bar/main]
+[bar/arch]
 monitor = ${env:MONITOR}
 override-redirect = false
 bottom = false

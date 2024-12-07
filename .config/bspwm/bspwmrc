@@ -1,49 +1,57 @@
-#! /bin/sh
+#!/bin/sh
 
-# Startups
-$HOME/.config/bspwm/autostart
+# Ejecuta sxhkd si no está activo
+pgrep -x sxhkd > /dev/null || sxhkd &
 
-# Configuración de los monitores y escritorios
-bspc monitor -d TERM WEBS CODE MISC EDIT
+# Configuración de monitores y escritorios
+bspc monitor -d TERM WEBS CODE MEDIA CHAT
 
-# Configuración de la apariencia de las ventanas
-bspc config border_width 0
-bspc config window_gap 10
-bspc config split_ratio 0.52
-bspc config borderless_monocle true
-bspc config gapless_monocle true
+# Configuración de ventanas
+bspc config border_width          4
+bspc config window_gap           10
+bspc config split_ratio           0.52
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+bspc config shadowless_monocle    true
 bspc config focus_follows_pointer true
 
-# Reglas para las aplicaciones
+# Apariencia de bordes
+bspc config normal_border_color  "#3c3836"
+bspc config focused_border_color "#d5c4a1"
+bspc config presel_feedback      "#d5c4a1"
 
-# Escritorio 1: Terminal
 bspc rule -a URxvt desktop='^1' follow=on focus=on
 
-# Escritorio 2: Navegadores
-declare -a browser=(firefox Sidekick-browser)
-for i in ${browser[@]}; do
-	bspc rule -a $i desktop='^2' follow=on focus=on; done
+declare -a browsers=(firefox Sidekick-browser)
+for app in ${browsers[@]}; do
+    bspc rule -a $app desktop='^2' follow=on focus=on
+done
 
-# Escritorio 3: Editor de código
 bspc rule -a Code desktop='^3' follow=on focus=on
 
-# Escritorio 4: Aplicaciones multimedia
-declare -a media=(Inkscape Gimp-2.10 kdenlive Pixelorama)
-for i in ${media[@]}; do
-	bspc rule -a $i desktop='^4' follow=on focus=on; done
+declare -a media_apps=(Inkscape Gimp-2.10 kdenlive Pixelorama)
+for app in ${media_apps[@]}; do
+    bspc rule -a $app desktop='^4' follow=on focus=on
+done
 
-# Escritorio 5: Aplicaciones de mensajería
 bspc rule -a TelegramDesktop desktop='^5' follow=on focus=on
 
-# Aplicaciones flotantes
-declare -a floatingApps=(xdman-Main Lxappearance Gparted Thunar \
-Viewnior Xarchiver Pavucontrol firefox:Dialog firefox:Browser \
-firefox:Pop-up nitrogen Gpick)
-for i in ${floatingApps[@]}; do
-    bspc rule -a $i state=floating focus=on follow=on; done
+declare -a floating_apps=(
+    xdman-Main Lxappearance Gparted Thunar Viewnior Xarchiver 
+    Pavucontrol firefox:Dialog firefox:Browser firefox:Pop-up 
+    nitrogen Gpick
+)
+for app in ${floating_apps[@]}; do
+    bspc rule -a $app state=floating follow=on focus=on
+done
 
-# Aplicaciones flotantes personalizadas
-declare -a floatingCust=(*:*:Picture-in-picture *:Toolkit:Picture-in-Picture mpv)
-for i in ${floatingCust[@]}; do
-	bspc rule -a $i state=floating sticky=on follow=off focus=on \
-    rectangle=500x300+1366+50; done
+declare -a floating_custom=(*:*:Picture-in-picture *:Toolkit:Picture-in-Picture mpv)
+for app in ${floating_custom[@]}; do
+    bspc rule -a $app state=floating sticky=on follow=off focus=on rectangle=500x300+1366+50
+done
+
+~/.fehbg &
+pgrep -x picom || picom -b &
+pgrep -x polybar || ~/.config/polybar/launch.sh &
+setxkbmap es
+pgrep -x dunst || dunst &

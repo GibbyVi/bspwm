@@ -1,0 +1,26 @@
+@import "themes/BlackArch.rasi"
+
+configuration {
+    modi: [drun, run, window];
+    show-icons: true;
+    disable-history: true;
+    cycle: true;
+    sidebar-mode: false;
+
+    hide-scrollbar: true;
+    
+    font: "Mono 12";
+    line-padding: 5;
+    line-margin: 2;
+    separator-style: "dash";
+
+    theme: "BlackArch";  
+
+    geometry: "400x20+50+50"; 
+    location: 0; 
+    corner-radius: 5;
+
+    auto-select: true;
+    matching: "normal";
+    run-command: "{cmd}";
+}
