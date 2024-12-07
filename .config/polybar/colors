@@ -1,0 +1,17 @@
+[colors]
+background = #1c1c1c
+background-alt = #282828
+foreground = #f1f1f1
+foreground-alt = #d8a0d4
+red = #9c4f96
+red-alt = #d17a92
+green = #7e8b3a
+green-alt = #a4c78b
+yellow = #e7c161
+yellow-alt = #e6bb7b
+blue = #5c65a1
+blue-alt = #9e8dd3
+purple = #8e44ad
+purple-alt = #b97cda
+aqua = #3f706e
+aqua-alt = #6fa68f
