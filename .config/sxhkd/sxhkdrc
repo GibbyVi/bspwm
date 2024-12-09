@@ -4,27 +4,27 @@
 
 # Cambiar una ventana a flotante
 super + shift + f
-bspc node -t floating
+    bspc node -t floating
 
 # Cambiar una ventana flotante al modo normal (tiling)
 super + shift + t
-bspc node -t tiled
+    bspc node -t tiled
 
 # Mover una ventana flotante hacia arriba
 super + alt + Up
-bspc node -v 0 20
+    bspc node -v 0 20
 
 # Mover una ventana flotante hacia abajo
 super + alt + Down
-bspc node -v 0 -20
+    bspc node -v 0 -20
 
 # Mover una ventana flotante hacia la izquierda
 super + alt + Left
-bspc node -v -20 0
+    bspc node -v -20 0
 
 # Mover una ventana flotante hacia la derecha
 super + alt + Right
-bspc node -v 20 0
+    bspc node -v 20 0
 
 ############################################################################################################
 #                                           Ventanas en Modo Normal                               #
@@ -32,19 +32,19 @@ bspc node -v 20 0
 
 # Intercambiar posiciones entre ventanas (de derecha a izquierda)
 super + ctrl + {Left, Right}
-bspc node -s {left, right}
+    bspc node -s {left, right}
 
 # Redimensionar ventanas
 super + alt + {Left,Right,Down,Up}
-bspc node -z {left -20 0, right 20 0, down 0 20, up 0 -20}
+    bspc node -z {left -20 0, right 20 0, down 0 20, up 0 -20}
 
 # Centrar la ventana actual
 super + c
-bspc node -g center
+    bspc node -g center
 
 # Cerrar una ventana
 super + q
-bspc node -c
+    bspc node -c
 
 ############################################################################################################
 #                                           Navegación de Escritorios                                      #
@@ -52,15 +52,15 @@ bspc node -c
 
 # Cambiar entre escritorios con números 1-5
 super + {1, 2, 3, 4, 5}
-bspc desktop -f {1, 2, 3, 4, 5}
+    bspc desktop -f {1, 2, 3, 4, 5}
 
 # Mover una ventana a otro escritorio
 super + shift + {1, 2, 3, 4, 5}
-bspc node -d {1, 2, 3, 4, 5}
+    bspc node -d {1, 2, 3, 4, 5}
 
 # Crear un nuevo escritorio
 super + n
-bspc desktop -n NewDesktop
+    bspc desktop -n NewDesktop
 
 ###########################################################################################################
 #                                           Lanzadores de Aplicaciones                                    #
@@ -68,22 +68,22 @@ bspc desktop -n NewDesktop
 
 # Abrir VSCode o VSCodium
 super + v
-code --no-sandbox
+    code --no-sandbox
 
 # Abrir Alacritty
 super + Return
-kitty
+    kitty
 
 super + 0
-aclarity
+    aclarity
 
 # Abrir Thunar (explorador de archivos)
 super + e
-thunar
+    thunar
 
 # Abrir navegador Tor (para el escritorio Tor)
 super + t
-torbrowser
+    torbrowser
 
 ########################################################################################################
 #                                                 Controles del Sistema                                #
@@ -91,12 +91,15 @@ torbrowser
 
 # Alternar picom (activar/desactivar composición)
 super + shift + p
-killall -q picom; picom &
+    killall -q picom; picom &
 
 # Reiniciar BSPWM (aplicar cambios)
 super + shift + r
-bspc wm -r
+    bspc wm -r
 
 # Cambiar fondos de pantalla con feh
-super + shift + f
-feh --bg-scale ~/.config/feh/wallpapers/default.jpg
+super + alt + space
+    feh --bg-scale ~/.config/feh/scripts/select-wallpaper.sh
+
+super + d
+    ~/.config/rofi/scripts/launch.sh

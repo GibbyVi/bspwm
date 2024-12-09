@@ -30,12 +30,17 @@ bspc config normal_border_color "#5D5C31"  # Color para ventanas no enfocadas.
 
 # Configurar ventanas flotantes (Thunar/Dolphin por defecto)
 bspc rule -a Thunar state=floating
-bspc rule -a Dolphin state=floating
 
 ### Acciones Dinámicas ###
+
+# Polybar Principal
+polybar Gibby &
+
+# Polybar Segundaria
+polybar Gibby_ip &
 
 # Ejecutar picom (compositor) con configuración personalizada
 picom --config ~/.config/picom/picom.conf &
 
 # Ejecutar feh con fondo de pantalla inicial
-feh --bg-scale ~/.config/feh/wallpapers/main.jpeg &
+feh --bg-scale ~/.config/feh/wallpapers/default.png &
