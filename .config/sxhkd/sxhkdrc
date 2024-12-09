@@ -1,77 +1,102 @@
-########################################################
-# wm independent hotkeys
-########################################################
+#############################################################################################################
+#                                                        Ventanas Flotantes                                 #
+#############################################################################################################
 
+# Cambiar una ventana a flotante
+super + shift + f
+bspc node -t floating
+
+# Cambiar una ventana flotante al modo normal (tiling)
+super + shift + t
+bspc node -t tiled
+
+# Mover una ventana flotante hacia arriba
+super + alt + Up
+bspc node -v 0 20
+
+# Mover una ventana flotante hacia abajo
+super + alt + Down
+bspc node -v 0 -20
+
+# Mover una ventana flotante hacia la izquierda
+super + alt + Left
+bspc node -v -20 0
+
+# Mover una ventana flotante hacia la derecha
+super + alt + Right
+bspc node -v 20 0
+
+############################################################################################################
+#                                           Ventanas en Modo Normal                               #
+############################################################################################################
+
+# Intercambiar posiciones entre ventanas (de derecha a izquierda)
+super + ctrl + {Left, Right}
+bspc node -s {left, right}
+
+# Redimensionar ventanas
+super + alt + {Left,Right,Down,Up}
+bspc node -z {left -20 0, right 20 0, down 0 20, up 0 -20}
+
+# Centrar la ventana actual
+super + c
+bspc node -g center
+
+# Cerrar una ventana
+super + q
+bspc node -c
+
+############################################################################################################
+#                                           Navegación de Escritorios                                      #
+############################################################################################################
+
+# Cambiar entre escritorios con números 1-5
+super + {1, 2, 3, 4, 5}
+bspc desktop -f {1, 2, 3, 4, 5}
+
+# Mover una ventana a otro escritorio
+super + shift + {1, 2, 3, 4, 5}
+bspc node -d {1, 2, 3, 4, 5}
+
+# Crear un nuevo escritorio
+super + n
+bspc desktop -n NewDesktop
+
+###########################################################################################################
+#                                           Lanzadores de Aplicaciones                                    #
+###########################################################################################################
+
+# Abrir VSCode o VSCodium
+super + v
+code --no-sandbox
+
+# Abrir Alacritty
 super + Return
-    kitty
+kitty
 
-super + d
-    rofi -show drun
+super + 0
+aclarity
 
-super + Escape
-    pkill -USR1 -x sxhkd
+# Abrir Thunar (explorador de archivos)
+super + e
+thunar
 
-########################################################
-# bspwm hotkeys
-########################################################
+# Abrir navegador Tor (para el escritorio Tor)
+super + t
+torbrowser
 
-super + alt + {q,r}
-    bspc {quit,wm -r}
+########################################################################################################
+#                                                 Controles del Sistema                                #
+########################################################################################################
 
-super + {_,shift + }w
-    bspc node -{c,k}
+# Alternar picom (activar/desactivar composición)
+super + shift + p
+killall -q picom; picom &
 
-super + m
-    bspc desktop -l next
+# Reiniciar BSPWM (aplicar cambios)
+super + shift + r
+bspc wm -r
 
-super + y
-    bspc node newest.marked.local -n newest.!automatic.local
-
-super + g
-    bspc node -s biggest
-
-########################################################
-# Window states
-########################################################
-
-super + {t,shift + t,s,f}
-    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
-super + ctrl + {m,x,y,z}
-    bspc node -g {marked,locked,sticky,private}
-
-########################################################
-# Focus/Swap nodes
-########################################################
-
-super + {_,shift + }{Left,Down,Up,Right}
-    bspc node -{f,s} {west,south,north,east}
-
-super + {grave,Tab}
-    bspc {node,desktop} -f last
-
-super + {o,i}
-    bspc node {older,newer} -f
-
-########################################################
-# Custom applications
-########################################################
-
-super + shift + w
-    microsoft-edge
-
-super + ctrl + b
-    burpsuite
-
-########################################################
-# Utility apps
-########################################################
-
-super + p
-    pkill -x picom || picom -b
-
-super + ctrl + p
-    ~/.config/polybar/launch.sh
-
-super + ctrl + d
-    pkill -x dunst && dunst &
+# Cambiar fondos de pantalla con feh
+super + shift + f
+feh --bg-scale ~/.config/feh/wallpapers/default.jpg
