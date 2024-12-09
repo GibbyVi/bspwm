@@ -1,5 +1,6 @@
 Version de prueba de entorno bspwm - esperamos poder crear un script de instalacion en un futuro.
-Por ahora estamos probando el entorno por lo que aun no es recomdable usar este repositorio para uso personal.
+
+Por ahora estamos probando el entorno por lo que aun no es recomedable usar este repositorio para uso personal.
 
 Copiar el repositorio:
 
