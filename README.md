@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ArchLinux
 
     Esta configuracion aun no esta completa.
@@ -5,6 +6,7 @@ ArchLinux
     
 
 #############################################################################
+
 Copiar el repositorio:
 
     git clone https://github.com/GibbyVi/bspwm
@@ -29,7 +31,13 @@ o mover rutas especificas
 
     mv bspwm/.local/* ~/
 
+<<<<<<< HEAD
 #############################################################################
+=======
+bashrc contiene solo un script (resomiendo solo copiar el contenido dentro del bashrc del sistema
+
+    nano ~/.bashrc
+>>>>>>> 4ce11e4a06f6c8c367acc307003b9fee717a170c
 
 #############################################################################
 Instalar las fuentes:
