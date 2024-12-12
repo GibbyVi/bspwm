@@ -1,19 +1,48 @@
+ArchLinux
+
+    Esta configuracion aun no esta completa.
+    Esperamos poder mejorar cada día este entorno minimalista enfocado a maquinas virtuales.
+    
+
+#############################################################################
 Copiar el repositorio:
 
-    git clone https://github.com/GibbyVi/bspwm.git
+    git clone https://github.com/GibbyVi/bspwm
 
 Copiar la configuracion a las ubicaciones correctas:
 
+    cp bspwm/* ~/
+
+Copiar archivos especificos:
+
     cp bspwm/.config/* ~/
+
     cp bspwm/.local/* ~/
 
-o mover los archivos:
+mover todos los archivos:
+
+    mv bspwm/* ~/
+
+o mover rutas especificas
 
     mv bspwm/.config/* ~/
+
     mv bspwm/.local/* ~/
 
+#############################################################################
 
+#############################################################################
 Instalar las fuentes:
 
-    paru -S ttf-raleway
+    paru -S ttf-raleway-git
 
+    paru -S ttf-nerd-fonts-hark-complete-git
+
+#############################################################################
+
+#############################################################################
+Instalar paquetes para una funcionalidad completa:
+
+    sudo pacman -S xclip dm-tool fzf
+
+#############################################################################
