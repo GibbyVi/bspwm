@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ArchLinux
 
     Esta configuracion aun no esta completa.
@@ -31,13 +30,16 @@ o mover rutas especificas
 
     mv bspwm/.local/* ~/
 
-<<<<<<< HEAD
 #############################################################################
-=======
-bashrc contiene solo un script (resomiendo solo copiar el contenido dentro del bashrc del sistema
+
+#############################################################################
+.bashrc contiene solo un script (recomiendo solo copiar el contenido dentro del bashrc del sistema)
+
+    nano ~/bspwm/.bashrc
 
     nano ~/.bashrc
->>>>>>> 4ce11e4a06f6c8c367acc307003b9fee717a170c
+
+#############################################################################
 
 #############################################################################
 Instalar las fuentes:
