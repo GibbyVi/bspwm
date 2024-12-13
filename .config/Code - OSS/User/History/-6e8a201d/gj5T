@@ -1,0 +1,100 @@
+#############################################################################################################
+#                                                        Ventanas Flotantes                                 #
+#############################################################################################################
+
+# Cambiar una ventana a flotante
+super + shift + f
+    bspc node -t floating
+
+# Cambiar una ventana flotante al modo normal (tiling)
+super + shift + t
+    bspc node -t tiled
+
+# Mover una ventana flotante hacia arriba
+super + alt + Up
+    bspc node -v 0 -20
+
+# Mover una ventana flotante hacia abajo
+super + alt + Down
+    bspc node -v 0 20
+
+# Mover una ventana flotante hacia la izquierda
+super + alt + Left
+    bspc node -v -20 0
+
+# Mover una ventana flotante hacia la derecha
+super + alt + Right
+    bspc node -v 20 0
+
+############################################################################################################
+#                                           Ventanas en Modo Normal                               #
+############################################################################################################
+
+# Intercambiar posiciones entre ventanas (de derecha a izquierda)
+super + ctrl + {Left, Right}
+    bspc node -s {left, right}
+
+# Redimensionar ventanas
+super + {Left,Right,Down,Up}
+    bspc node -z {left -20 0, right 20 0, down 0 20, up 0 -20}
+
+super + shift + {Left, Right, Down, Up}
+    bspc node -z {left 20 0, right -20 0, down 0 -20, up 0 20}
+
+# Cerrar una ventana
+super + q
+    bspc node -c
+
+############################################################################################################
+#                                           Navegación de Escritorios                                      #
+############################################################################################################
+
+# Cambiar entre escritorios con números 1-5
+super + {1, 2, 3, 4, 5}
+    bspc desktop -f {MAIN, CODE, MEDIA, TOR, VPN}
+
+# Mover una ventana a otro escritorio
+super + shift + {1, 2, 3, 4, 5}
+    bspc node -d {MAIN, CODE, MEDIA, TOR, VPN}
+
+###########################################################################################################
+#                                           Lanzadores de Aplicaciones                                    #
+###########################################################################################################
+
+# Abrir VSCode o VSCodium
+super + v
+    code --no-sandbox
+
+# Abrir Alacritty
+super + Return
+    kitty
+
+super + 0
+    alacritty
+
+# Abrir Thunar (explorador de archivos)
+super + e
+    thunar
+
+# Abrir navegador Tor (para el escritorio Tor)
+super + t
+    torbrowser
+
+########################################################################################################
+#                                                 Controles del Sistema                                #
+########################################################################################################
+
+# Alternar picom (activar/desactivar composición)
+super + shift + p
+    killall -q picom; picom &
+
+# Reiniciar BSPWM (aplicar cambios)
+super + shift + r
+    bspc wm -r
+
+# Cambiar fondos de pantalla con feh
+super + alt + space
+    feh --bg-scale ~/.config/feh/scripts/select-wallpaper.sh
+
+super + d
+    rofi -show drun

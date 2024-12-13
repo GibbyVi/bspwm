@@ -1,0 +1,179 @@
+#############################################################################
+#                              Configuración sxhkd                          #
+#############################################################################
+
+# General
+super + Return
+    kitty
+
+super + 0
+    alacritty
+
+super + q
+    bspc node -c
+
+super + d
+    rofi -show drun
+
+super + Escape
+    bspc wm -r
+
+super + shift + r
+    bspc wm -c && bspc wm -r
+
+super + shift + q
+    dm-tool lock
+
+escape + escape
+    sudo
+
+# Clipboard (copiar y pegar entre selecciones)
+ctrl + alt + button{1-3}
+    xclip -selection clipboard -o | xclip -selection clipboard
+
+#############################################################################
+#                              Escritorios y Polybar                        #
+#############################################################################
+
+# Navegación entre escritorios
+super + {1-9,0}
+    bspc desktop -f ^{1-9,0}
+
+# Mover ventanas entre escritorios
+super + shift + {1-9,0}
+    bspc node -d ^{1-9,0}
+
+# Navegación con nombres específicos
+super + {1, 2, 3, 4, 5}
+    bspc desktop -f {MAIN, CODE, MEDIA, TOR, VPN}
+
+super + shift + {1, 2, 3, 4, 5}
+    bspc node -d {MAIN, CODE, MEDIA, TOR, VPN}
+
+# Preselectores
+super + ctrl + alt + {Left, Down, Up, Right}
+    bspc node -p {left, down, up, right}
+
+super + ctrl + alt + space
+    bspc node -p cancel
+
+super + ctrl + {1-9,0}
+    bspc node -o ^{1-9,0}
+
+super + ctrl + m
+    bspc node -n preselect
+
+super + y
+    bspc node -a
+
+#############################################################################
+#                              Ventanas Flotantes                          #
+#############################################################################
+
+# Alternar entre modos flotante y tiling
+super + shift + f
+    bspc node -t floating
+
+super + shift + t
+    bspc node -t tiled
+
+# Mover ventanas flotantes
+super + alt + {Up, Down, Left, Right}
+    bspc node -v {0 -50, 0 50, -50 0, 50 0}
+
+# Redimensionar ventanas flotantes
+super + button1
+    bspc node -t floating -g move
+
+super + button3
+    bspc node -t floating -g resize
+
+#############################################################################
+#                                Ventanas Tiling                           #
+#############################################################################
+
+# Redimensionar ventanas
+super + {Left, Right, Down, Up}
+    bspc node -z {left -50 0, right 50 0, down 0 50, up 0 -50}
+
+super + shift + {Left, Right, Down, Up}
+    bspc node -z {left 50 0, right -50 0, down 0 -50, up 0 50}
+
+# Mover ventanas dentro del tiling
+super + ctrl + {Left, Right}
+    bspc node -s {left, right}
+
+#############################################################################
+#                                Lanzadores                                #
+#############################################################################
+
+# Explorador de archivos
+super + e
+    thunar
+
+# Navegadores
+super + f
+    firefox
+
+super + t
+    torbrowser
+
+# IDE/Editor
+super + v
+    code --no-sandbox
+
+#############################################################################
+#                           Funciones de Terminal                          #
+#############################################################################
+
+# Terminales con clases específicas
+super + shift + s
+    kitty --class floating
+
+super + shift + f
+    kitty --class fullscreen
+
+super + shift + t
+    kitty --class tiled
+
+# Terminal flotante
+super + button1
+    bspc node -g move
+
+super + button3
+    bspc node -g resize
+
+#############################################################################
+#                                FZF                                       #
+#############################################################################
+
+ctrl + r
+    fzf --history
+
+ctrl + t
+    fzf --preview 'wh {}'
+
+ctrl + t
+    fzf --preview 'cd {}'
+
+ctrl + t
+    fzf --preview 'rm {}'
+
+
+########################################################################################################
+#                                                 Controles del Sistema                                #
+########################################################################################################
+
+# Alternar picom (activar/desactivar composición)
+super + shift + p
+    killall -q picom; picom &
+
+super + alt +  space
+    killall -q sxhkd; sxhkd &
+
+# Reiniciar BSPWM (aplicar cambios)
+super + shift + r
+    bspc wm -r
+
+super + d
+    rofi -show drun

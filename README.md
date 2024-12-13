@@ -33,6 +33,7 @@ o mover rutas especificas
 #############################################################################
 
 #############################################################################
+
 .bashrc contiene solo un script (recomiendo solo copiar el contenido dentro del bashrc del sistema)
 
     nano ~/bspwm/.bashrc
@@ -42,6 +43,7 @@ o mover rutas especificas
 #############################################################################
 
 #############################################################################
+
 Instalar las fuentes:
 
     paru -S ttf-raleway-git
@@ -51,6 +53,7 @@ Instalar las fuentes:
 #############################################################################
 
 #############################################################################
+
 Instalar paquetes para una funcionalidad completa:
 
     sudo pacman -S xclip dm-tool fzf
