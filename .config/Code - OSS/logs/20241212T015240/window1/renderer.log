@@ -1,5 +1,0 @@
-2024-12-12 01:52:44.940 [warning] Creation of workbench contribution 'workbench.contrib.preferencesActions' took 23ms.
-2024-12-12 01:52:45.702 [info] Started local extension host with pid 4367.
-2024-12-12 01:52:46.353 [info] Started initializing default profile extensions in extensions installation folder. file:///home/GibbyArch/.vscode-oss/extensions
-2024-12-12 01:52:48.181 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/GibbyArch/.vscode-oss/extensions
-2024-12-12 01:52:53.052 [info] [perf] Render performance baseline is 81ms
